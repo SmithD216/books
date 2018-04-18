@@ -1,13 +1,14 @@
 //Create a string which represents an 8x8 chess board
 let board= "";
 let line = "";
+//Optional: allow a custom size variable
 let size = 8;
 
 for(let i=0;i<size;i++){
     if(i%2==0){
         line += '#';
     } else {
-        line += '-';
+        line += ' ';
     }
 }
 
