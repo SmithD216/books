@@ -21,11 +21,12 @@ function loadPage() {
         //This second parameter is an array of the eiffel towers latitude and longitude
         closestTo(people_data, [48.858370, 2.294481]);
         ageEyeColour(people_data, "blue");
+        ageWealth(people_data);
     });
 }
 
 //Made eye colour a parameter for extensibility
-function countEyeColour(data, colour, display=false) {
+function countEyeColour(data, colour, display = false) {
     let counter = 0;
     //Simple for loop that runs through the list of people and tallies the target value
     for (let i = 0; i < data.length; i++) {
@@ -49,8 +50,16 @@ function surnameCount(data) {
         }
     }
     //Here we sort the counter objects and add them to an array
-    keysSorted = Object.keys(counter).sort(function (a, b) { return counter[a] - counter[b] })
-    document.getElementById('common-surnames').innerHTML = `The most common surnames are: <br> ${keysSorted.slice(-10)} <br> Although most of the surnames appeared 9 or 10 times each so there wasn't really a "top 10 most common."`;
+    let sortarr = [];
+    for (let entry in counter) {
+        sortarr.push([entry, counter[entry]]);
+    }
+    sortarr.sort(function (a, b) { return (b[1] - a[1]) });
+
+    //Finally we loop to display the contents of the sorted array
+    for (let top = 0; top < 10; top++) {
+        document.getElementById('common-surnames').innerHTML += `${sortarr[top]}<br>`;
+    }
 }
 
 function closestTo(data, target) {
@@ -67,6 +76,34 @@ function ageEyeColour(data, target) {
             age += data[i].age;
         }
     }
-    average = age / countEyeColour(data, target); 
-    document.getElementById('average-eyes').innerHTML = `The average age of people with ${target} eyes is ${Math.round(average * 10)/10} .`;
+    average = age / countEyeColour(data, target);
+    document.getElementById('average-eyes').innerHTML = `The average age of people with ${target} eyes is ${Math.round(average * 10) / 10} .`;
+}
+
+function ageWealth(data) {
+    let counter = {};
+
+    for (let i = 0; i < data.length; i++) {
+        let target = data[i].age;
+        if (counter[target]) {
+            counter[target] += parseFloat(data[i].balance.replace(",", ""));
+        } else {
+            counter[target] = 1;
+        }
+    }
+
+    console.log(counter);
+
+    //I'll just use the same object -> array method as in the surname function, could have possibly gone in its own function
+    let sortarr = [];
+    for (let entry in counter) {
+        sortarr.push([entry, counter[entry]]);
+    }
+    sortarr.sort(function (a, b) { return (a[1] - b[1]) });
+
+    //Finally we loop to display the contents of the sorted array
+    for (let top = 0; top < 10; top++) {
+        document.getElementById('age-wealth').innerHTML += `${sortarr[top]} <br>`;
+    }
+
 }
