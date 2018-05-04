@@ -13,6 +13,7 @@ function loadJSON(callback) {
     xhttp.send(null);
 }
 
+//Takes the parsed JSON data and passes it to the relevant functions
 function loadPage() {
     loadJSON(function (response) {
         people_data = JSON.parse(response);
@@ -25,7 +26,7 @@ function loadPage() {
     });
 }
 
-//Made eye colour a parameter for extensibility
+//Made eye colour a parameter for extensibility as well as a display parameter to disable adding the results to the DOM by default
 function countEyeColour(data, colour, display = false) {
     let counter = 0;
     //Simple for loop that runs through the list of people and tallies the target value
@@ -82,28 +83,26 @@ function ageEyeColour(data, target) {
 
 function ageWealth(data) {
     let counter = {};
-
+    //Here I used a similar loop -> object system as for surnames but this time I'm adding the current users balance rather than just incrementing
     for (let i = 0; i < data.length; i++) {
         let target = data[i].age;
         if (counter[target]) {
+            //The balance property is a string so we need to remove the comma and convert it to a float before adding it
             counter[target] += parseFloat(data[i].balance.replace(",", ""));
         } else {
-            counter[target] = 1;
+            counter[target] = parseFloat(data[i].balance.replace(",", ""));
         }
     }
-
-    console.log(counter);
 
     //I'll just use the same object -> array method as in the surname function, could have possibly gone in its own function
     let sortarr = [];
     for (let entry in counter) {
         sortarr.push([entry, counter[entry]]);
     }
-    sortarr.sort(function (a, b) { return (a[1] - b[1]) });
+    sortarr.sort(function (a, b) { return (b[1] - a[1]) });
 
     //Finally we loop to display the contents of the sorted array
     for (let top = 0; top < 10; top++) {
-        document.getElementById('age-wealth').innerHTML += `${sortarr[top]} <br>`;
+        document.getElementById('age-wealth').innerHTML += `Age: ${sortarr[top][0]} | Balance: ${sortarr[top][1].toFixed(2)} <br>`;
     }
-
 }
