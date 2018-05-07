@@ -1,0 +1,107 @@
+---ES 2016---
+
+    --Modules--
+        ES6 has added a native module system to js
+        This means you can now import/export functionality between files, similarly to how Python does it
+        To clarify; a module is simply a file with JS code in it
+
+        -Exporting-
+            If you want to export something in a file you simply say 'export thing':
+                export const MY_CONSTANT = 7;
+            Exporting is limited to variable, function and class declarations
+            So for example the following is just as valid as when we exported the above const:
+                export function multiply(x) {
+                    return x * MY_CONSTANT;
+                }
+
+            If you want to avoid inserting exports into your code you can also export everything later, e.g at the end:
+                let notExported = 'abc';
+                function multiply(x) {
+                    return x * MY_CONSTANT;
+                }
+                const MY_CONSTANT = 7;
+                export { multiply, MY_CONSTANT };
+            You can also rename while exporting:
+                export { multiply as mult, MY_CONSTANT as SOME_CONSTANT };
+            
+        -Importing-
+            An example of importing the multiply function from calc.js (the demo file from the export section):
+                import { multiply } from 'lib/calc';
+                console.log(multiply(3));
+            This file refers to calc.js via the module ID 'lib/calc' which is a string.
+            The default interpretation of the ID is as a path relative to the importing module (the same as how an html file will look for any <scripts> based on the html file's location)
+
+            You can also import more than one value if you want to:
+                import {multiply, MY_CONSTANT} from 'lib/calc';
+            Another alternative is to import the whole module as an object and access the exports via properties:
+                import 'lib/calc' as c;
+                console.log(c.multiply(3));
+
+            Finally you can also rename an exported module locally:
+                import {multiply as mult} from 'lib/calc';
+                console.log(mult(3));
+
+---NPM---
+
+Follow a guide to make sure npm installs global packages in the home directory just so it's easier to find
+
+Before installing any packages you should initialize the project with npm:
+    npm init
+This will ask for some optional information and once done it will create a package.json file
+This file is important as it will include all the metadata about your project and is important for team based work
+
+To install a packages globally you use the -g flag:
+    e.g npm install react -g
+You shouldn't really install npm packages globally if they relate to a project because then it makes it harder for other people to match the package versions etc
+You can find out where your global packages are installed by running:
+    which npm
+
+To install a package locally you just do npm install with no flags:
+    e.g npm install react
+
+You can also install a package so that it is considered 'development only' to avoid dev tools being deployed on production servers:
+    e.g npm install --save -dev babel-cli
+If you have a package.json (you should) then it will also add that package to the list of dependencies
+After installing a package locally it can be found in the local node_modules folder which will create itself if it doesn't already exist
+
+Another major feature of npm is the ability to script things using package.json
+In package.json there should be a section marked "scripts"
+You can use that section to bind complex actions to simple commands:
+    e.g If I wanted to use Babel to transform a javascript file and output the transformed file in the same directory my scripts section would look like this-
+        "scripts": {
+            "build": "babel js/weather.js -o js/weather-compiled.js"
+        },
+
+Finally you can also configure npm by using the .npmrc file which should be in your home folder
+
+
+
+---Babel---
+
+This is a compiler which will allow you to use modern JS features without worrying about browser compatibility
+It does this by converting your ES2016/JSX/Whatever code into pre-ES2015 JS code
+
+You install it like your typical npm package (note the --save-dev flag as babel is only used in development):
+    npm install --save-dev babel-cli
+
+You're not done after installing babel-cli though
+Next you should create a .babelrc configuration file:
+    touch .babelrc
+This file will store your list of transform presets like the react preset
+
+Babel accounts for a wide range of conversion so you need to install the presets for your specific conversions:
+    e.g Installing the preset for ES2015+ transforms-
+        npm install babel-preset-env --save-dev
+    e.g Installing the preset for React-
+        npm install babel-preset-react --save-dev
+
+
+---Ubuntu to Fedora cheat sheet---
+
+apt-get update 	dnf check-update:You don't need to do this as dnf updates its cache automatically before performing transactions
+apt-get upgrade - dnf upgrade
+apt-get dist-upgrade - dnf system-upgrade:Distro upgrades with dnf are possible as of Fedora 22+, refer to DNF system upgrade for more information
+apt-get install - dnf install
+apt-get remove - dnf remove
+apt-get purge - N/A
+apt-cache search - dnf search
