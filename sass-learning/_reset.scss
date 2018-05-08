@@ -1,0 +1,11 @@
+//This file is known as a partial, a small snippet of css to be included in other sass files
+//You can tell it's a partial by the leading underscore in the file name
+//The underscore lets sass know that the file is only a partial and should not be generated into a css file
+
+html,
+body,
+ul,
+ol{
+    margin: 0;
+    padding: 0;
+}

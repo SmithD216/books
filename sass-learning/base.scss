@@ -1,0 +1,9 @@
+//Similar to js we can import other css files however importing creates an HTTP request for each imported file
+//Sass will instead take the file you want to import and combine it with the file doing the importing so it can serve a single CSS file
+
+@import 'reset';
+
+body{
+    font: 100% Helvetica, sans-serif;
+    background-color: #efefef;
+}

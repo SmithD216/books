@@ -1,7 +1,28 @@
+//Scss variables are defined with dollar signs
 $font-stack: Helvetica, sans-serif;
 $primary-color: #333;
 
 body{
+    //Variables are accessed with the same dollar sign notation
     font: 100% $font-stack;
     color: $primary-color;
+}
+
+//Scss allows you to nest selectors in a manner similar to HTML
+nav{
+    ul{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    li{
+        display: inline-block;
+    }
+
+    a{
+        display: block;
+        padding: 6px 12px;
+        text-decoration: none;
+    }
 }
