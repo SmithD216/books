@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 function getLocation(){
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(getWeather);
@@ -10,9 +13,7 @@ function getWeather(position){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
-            var jsdata = JSON.parse(this.responseText)
-            console.log(jsdata);
+            var jsdata = JSON.parse(this.responseText);
             document.getElementById("weather-desc").innerHTML = "<p>" + jsdata.weather[0].description + "</p>";
             changeBG(jsdata.weather[0].id);
             //I don't like how unwieldy this line is, it's because I didn't plan ahead enough regarding placement or using markup
@@ -55,3 +56,8 @@ function changeBG(id){
         document.body.style.backgroundImage = "url('https://news.nationalgeographic.com/content/dam/news/2015/04/11/extremeweathergallery/14extremeweather.jpg')";
     }
 }
+
+ReactDOM.render(
+    <h1>Hello, world.</h1>,
+    document.getElementById('app')
+);

@@ -1,4 +1,14 @@
-"use strict";
+'use strict';
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function getLocation() {
     if (navigator.geolocation) {
@@ -12,9 +22,7 @@ function getWeather(position) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
             var jsdata = JSON.parse(this.responseText);
-            console.log(jsdata);
             document.getElementById("weather-desc").innerHTML = "<p>" + jsdata.weather[0].description + "</p>";
             changeBG(jsdata.weather[0].id);
             //I don't like how unwieldy this line is, it's because I didn't plan ahead enough regarding placement or using markup
@@ -57,3 +65,9 @@ function changeBG(id) {
         document.body.style.backgroundImage = "url('https://news.nationalgeographic.com/content/dam/news/2015/04/11/extremeweathergallery/14extremeweather.jpg')";
     }
 }
+
+_reactDom2.default.render(_react2.default.createElement(
+    'h1',
+    null,
+    'Hello, world.'
+), document.getElementById('app'));

@@ -4,7 +4,7 @@
   "description": "",
   "main": "weather.js",
   "scripts": {
-    "build": "babel js/weather.js -o js/weather-compiled.js"
+    "build": "babel js/weather.jsx -o js/weather-compiled.js"
   },
   "author": "",
   "license": "ISC",
