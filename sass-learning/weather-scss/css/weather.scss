@@ -1,15 +1,8 @@
-html body {
-  background-color: #222222;
-  color: whitesmoke;
-  font-family: "Roboto", sans-serif;
-  font-size: 2em;
-  background-size: 100%;
-}
+@import 'body';
 
-#weather-desc, #temperature {
+%centered-text{
   text-align: center;
 }
-
 #weather-container {
   width: 33%;
   height: 33%;
@@ -20,6 +13,7 @@ html body {
 }
 
 #temperature {
+  @extend %centered-text;
   width: 100%;
 }
 
@@ -35,9 +29,8 @@ html body {
 }
 
 #weather-desc {
+  @extend %centered-text;
   text-transform: capitalize;
 }
 
 /*# sourceMappingURL=weather.scss.map */
-
-/*# sourceMappingURL=weather.css.map */
