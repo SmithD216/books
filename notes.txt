@@ -21,6 +21,7 @@
                 }
                 const MY_CONSTANT = 7;
                 export { multiply, MY_CONSTANT };
+                
             You can also rename while exporting:
                 export { multiply as mult, MY_CONSTANT as SOME_CONSTANT };
             
