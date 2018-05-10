@@ -97,12 +97,29 @@ Babel accounts for a wide range of conversion so you need to install the presets
         npm install babel-preset-react --save-dev
 
 
----Ubuntu to Fedora cheat sheet---
+--- Fedora/Linux ---
 
-apt-get update 	dnf check-update:You don't need to do this as dnf updates its cache automatically before performing transactions
-apt-get upgrade - dnf upgrade
-apt-get dist-upgrade - dnf system-upgrade:Distro upgrades with dnf are possible as of Fedora 22+, refer to DNF system upgrade for more information
-apt-get install - dnf install
-apt-get remove - dnf remove
-apt-get purge - N/A
-apt-cache search - dnf search
+    -- System Maintenance (Ubuntu to Fedora cheat sheet)--
+        apt-get update 	dnf check-update:You don't need to do this as dnf updates its cache automatically before performing transactions
+        apt-get upgrade - dnf upgrade
+        apt-get dist-upgrade - dnf system-upgrade:Distro upgrades with dnf are possible as of Fedora 22+, refer to DNF system upgrade for more information
+        apt-get install - dnf install
+        apt-get remove - dnf remove
+        apt-get purge - N/A
+        apt-cache search - dnf search
+
+    -- Aliases --
+        Aliases let you create user defined commands which correspond to existing commands
+        For example you could bind 'l' to 'ls -al' to list files easier
+
+        Aliases are temporary unless stored in .bashrc
+        If stored in the user .bashrc that alias is only bound for that user
+        If stored in the root .bashrc that alias will be available to all users
+
+        - Active Aliases -
+            On this machine the following aliases are stored in the user .bashrc:
+
+            #Creates a command which tells npm to look in the node_modules folder of the local project to find the bin directory
+                alias npm-local='PATH=$(npm bin):$PATH'
+            #Usage example (starts up the local webpack server using the local node_module bin):
+                npm-local webpack-dev-server --mode-development
