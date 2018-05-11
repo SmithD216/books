@@ -97,6 +97,18 @@ Babel accounts for a wide range of conversion so you need to install the presets
         npm install babel-preset-react --save-dev
 
 
+--- Git ---
+
+To rollback to the last commit (undoes local file changes but does not remove the last commit):
+    git reset --hard
+
+Undo local file changes and remove the last commit:
+    git reset --hard HEAD^
+
+Keep local change and remove only the last commit:
+git reset --soft HEAD^
+
+
 --- Fedora/Linux ---
 
     -- System Maintenance (Ubuntu to Fedora cheat sheet)--
