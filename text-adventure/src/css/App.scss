@@ -1,0 +1,12 @@
+//Right now the project is configured to compile this and add it to the main page in the form of a style tag
+//This is bad and needs to be changed because when it's in a style tag the browser will not cache it
+
+html{
+    background: #070721;
+}
+
+.App {
+    margin: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
