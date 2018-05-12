@@ -1,11 +1,13 @@
-// components/containers/GC.js
 import React, { Component } from "react";
+import IC from "./IC";
+import BC from "./BC";
 
-export default class ComponentB extends Component {
+export default class GC extends Component {
     render() {
         return (
             <div class="game-container">
-                <h1>Hello</h1>
+                <IC />
+                <BC />
             </div>
         )
     }
