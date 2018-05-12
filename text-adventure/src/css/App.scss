@@ -13,7 +13,22 @@ html{
 
 .game-container{
     width: 75vw;
+    height: 90vh;
     margin-left: auto;
     margin-right: auto;
     border: 3px double white;
+
+    .image-container{
+        height: 40%;
+        
+        img{
+            max-height: 100%;
+        }
+    }
+
+    .button-container{
+        height: 60%;
+        border-top: solid 1px white;
+    }
 }
+
