@@ -1,6 +1,8 @@
 //Right now the project is configured to compile this and add it to the main page in the form of a style tag
 //This is bad and needs to be changed because when it's in a style tag the browser will not cache it
 
+@import 'controls/buttons';
+
 html{
     background: #070721;
 }
