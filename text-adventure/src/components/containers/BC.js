@@ -4,7 +4,7 @@ import Button from "../controls/Button";
 function ListButtons(props){
     const content = props.content;
     const buttonList = content.map((item) => 
-        <div class="button" key={item.toString()}>{item}</div>
+        <div class="button" key={item.toString()}><p>{item}</p></div>
     );
 
     return(

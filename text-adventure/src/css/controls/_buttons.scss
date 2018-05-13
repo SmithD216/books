@@ -2,5 +2,11 @@
     //Possibly temporary
     height: 25%;
     border-top: 1px solid white;
-    text-align: center;
+    p{
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0;
+        text-align: center;
+    }
 }
