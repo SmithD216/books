@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import player from "../logic/player";
 
 export default class Button extends Component {
 
@@ -14,7 +14,8 @@ export default class Button extends Component {
 
     resolveButton(but){
         but.preventDefault();
-        console.log(this.state.statno);
+        player.status += this.state.statno;
+        console.log(player.status);
     }
 
     render() {
