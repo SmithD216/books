@@ -5,7 +5,7 @@ import desc from "../story/ButtonText";
 
 function createList(content){
     const buttonList = content.map((item,itemno) =>
-        <Button key={itemno.toString()} text={item} statno={itemno}/>
+        <Button key={itemno.toString()} text={item} statno={itemno + 1}/>
     );
     return(buttonList);
 }
