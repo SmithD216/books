@@ -4,8 +4,8 @@ import player from "../logic/player";
 import desc from "../story/ButtonText";
 
 function createList(content){
-    const buttonList = content.map((item) =>
-        <Button key={item.toString()} text={item}/>
+    const buttonList = content.map((item,itemno) =>
+        <Button key={itemno.toString()} text={item} statno={itemno}/>
     );
     return(buttonList);
 }

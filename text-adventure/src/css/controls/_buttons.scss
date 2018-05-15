@@ -2,11 +2,18 @@
     //Possibly temporary
     height: 25%;
     border-top: 1px solid white;
-    p{
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-        margin: 0;
-        text-align: center;
+    a{
+        height: 100%;
+        width: 100%;
+        display: block;
+        color: yellow;
+        text-decoration: none;
+        p{
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            margin: 0;
+            text-align: center;
+        }
     }
 }

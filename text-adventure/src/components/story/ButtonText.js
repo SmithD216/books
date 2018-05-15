@@ -5,6 +5,9 @@ export default function assignText(page) {
         case 0:
             text = ["North", "South", "East", "West"]
             break;
+        case 1:
+            text = ["1","2","3","4"]
+            break;
         case 2:
             text = ["This", "Is", "Page", "Two"]
             break;
