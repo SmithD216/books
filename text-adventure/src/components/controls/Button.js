@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactDOM from "react-dom";
 
 export default class Button extends Component {
 
@@ -8,12 +9,18 @@ export default class Button extends Component {
             statno: this.props.statno,
             text: this.props.text
         };
+        this.resolveButton = this.resolveButton.bind(this);
+    }
+
+    resolveButton(but){
+        but.preventDefault();
+        console.log(this.state.statno);
     }
 
     render() {
         return (
-            <div class="button">
-                <a href={this.state.statno}><p>{this.state.text}</p></a>
+            <div className="button">
+                <a href="#" onClick={this.resolveButton}><p>{this.state.text}</p></a>
             </div>
         )
     }
