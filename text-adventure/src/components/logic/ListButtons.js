@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Button from "../controls/Button";
 import player from "../logic/player";
-import text from "../story/ButtonText";
+import desc from "../story/ButtonText";
 
 function createList(content){
     const buttonList = content.map((item) =>
@@ -13,7 +13,7 @@ function createList(content){
 export default class ListButtons extends Component {
     render() {
         return (
-            <div class="button-container">{createList(text(player.status))}</div>
+            <div class="button-container">{createList(desc(player.status))}</div>
         )
     }
 }
