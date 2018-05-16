@@ -30,7 +30,10 @@ html{
 
     .button-container{
         height: 60%;
-        border-top: solid 1px white;
+        .button-list{
+            height: 100%;
+            border-top: solid 1px white;
+        }
     }
 }
 

@@ -28,7 +28,7 @@ export default class ListButtons extends Component {
 
     render() {
         return (
-            <div class="button-container">
+            <div class="button-list">
                 {this.state.list}
             </div>
         )
