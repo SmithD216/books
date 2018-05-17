@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Button from "../controls/Button";
-import player from "../logic/player";
 
 export default class BC extends Component {
     render() {

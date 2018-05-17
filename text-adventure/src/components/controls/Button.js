@@ -15,6 +15,7 @@ export default class Button extends Component {
 
     componentDidMount(){
         this.setState(prevState => ({
+            //The minus 1 here is to make sure that we start from index 0 when looking for the button text
             text:desc(player.status)[this.state.statno-1]
         }));
     }
