@@ -1,21 +1,33 @@
 import React, { Component } from "react";
 import player from "../logic/player";
+import desc from "../story/ButtonText"
 
 export default class Button extends Component {
 
     constructor(props){
         super(props);
         this.state = {
-            statno: this.props.statno,
-            text: this.props.text
+            statno: this.props.butcount,
+            text: desc(player.status)[this.statno]
         };
         this.resolveButton = this.resolveButton.bind(this);
     }
 
+    componentDidMount(){
+        this.setState(prevState => ({
+            text:desc(player.status)[this.state.statno-1]
+        }));
+    }
+
     resolveButton(but){
-        but.preventDefault();
-        player.status += this.state.statno;
         console.log(player.status);
+        but.preventDefault();
+        player.status += parseInt(this.state.statno);
+
+        this.setState(prevState => ({
+            text:desc(player.status)[this.state.statno]
+        }));
+
     }
 
     render() {
