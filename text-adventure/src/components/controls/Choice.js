@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 
-export default class GC extends Component {
-
-
-    
+export default class Choice extends Component {
     render() {
         return (
-            <div className="choice">
+            
+                <a href="">
+                    <p>{this.props.text}</p>  
+                </a>
 
-            </div>
         )
     }
 }

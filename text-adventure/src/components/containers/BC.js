@@ -6,30 +6,25 @@ export default class BC extends Component {
 
     constructor(props) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
+
         this.state = {
             status: 0,
-            butId: 0,
-            text: "-"
+            butId: 0
         };
     }
 
-    handleChange(e){
-        const butText = desc(this.state.status);
-        this.setState({text: butText});
-    }
-
-    createList(){
-        console.log(butText);
+    createList(choiceText){
+        const butList = choiceText.map((item,itemno) => 
+            <div className="choice"><Choice key={parseInt(itemno)} butId={this.state.butId} text={item}/></div>
+        );
+        console.log(choiceText);
+        return butList;
     }
 
     render() {
         return (
             <div className="button-container">
-                <Choice />
-                <Choice />
-                <Choice />
-                <Choice />
+                {this.createList([content(this.state.status)])}
             </div>
         )
     }
