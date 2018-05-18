@@ -1,14 +1,32 @@
 import React, { Component } from "react";
-import Button from "../controls/Button";
+import Choice from "../controls/Choice";
+import content from "../story/ButtonText";
 
 export default class BC extends Component {
+
+    constructor(props) {
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+        this.state = {
+            status: 0,
+            butId: 0,
+            text: "-"
+        };
+    }
+
+    handleChange(e){
+        const butText = desc(this.state.status);
+        this.setState({text: butText});
+    }
+
+
     render() {
         return (
             <div class="button-container">
-                <Button butcount="1"/>
-                <Button butcount="2"/>
-                <Button butcount="3"/>
-                <Button butcount="4"/>
+                <Choice />
+                <Choice />
+                <Choice />
+                <Choice />
             </div>
         )
     }
