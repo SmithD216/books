@@ -19,10 +19,13 @@ export default class BC extends Component {
         this.setState({text: butText});
     }
 
+    createList(){
+        console.log(butText);
+    }
 
     render() {
         return (
-            <div class="button-container">
+            <div className="button-container">
                 <Choice />
                 <Choice />
                 <Choice />

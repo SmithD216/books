@@ -5,7 +5,7 @@ import BC from "./BC";
 export default class GC extends Component {
     render() {
         return (
-            <div class="game-container">
+            <div className="game-container">
                 <IC />
                 <BC />
             </div>
