@@ -14,11 +14,10 @@ export default class BC extends Component {
     }
 
     createList(choiceText){
-        const butList = choiceText.map((item,itemno) => 
+        return (choiceText.map((item,itemno) => 
             <div className="choice"><Choice key={parseInt(itemno)} butId={this.state.butId} text={item}/></div>
+        )
         );
-        console.log(choiceText);
-        return butList;
     }
 
     render() {
