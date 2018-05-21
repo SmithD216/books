@@ -9,13 +9,12 @@ export default class BC extends Component {
 
         this.state = {
             status: 0,
-            butId: 0
         };
     }
 
     createList(choiceText){
-        return (choiceText.map((item,itemno) => 
-            <div className="choice"><Choice key={parseInt(itemno)} butId={this.state.butId} text={item}/></div>
+        return (choiceText[0].map((item,itemno) => 
+            <div className="choice"><Choice key={parseInt(itemno)} text={item}/></div>
         )
         );
     }
