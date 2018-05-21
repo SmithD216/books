@@ -14,7 +14,7 @@ export default class BC extends Component {
 
     createList(choiceText){
         return (choiceText[0].map((item,itemno) => 
-            <div className="choice"><Choice key={parseInt(itemno)} text={item}/></div>
+            <div className="choice"><Choice key={itemno} id={itemno} text={item}/></div>
         )
         );
     }
